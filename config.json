@@ -6,7 +6,7 @@
             "instance": "new plcipc.PLCApplication(${address}, ${symbols})",
             "lookup": {
                 "fetch": "rest.get('/automation/api/v1.0/plc/app?type=browse')",
-                "transform": "{ id: arguments[0], address: arguments[0], symbols: (() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => ({ id: ret, vtype: 'TODO' })) })() }"
+                "transform": "{ id: arguments[0], address: arguments[0], symbols: (() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym/${s}?type=browse`).map((v) => s + '/' + v)).reduce((a, b) => a.concat(b), []).map((v) => ({ id: v, vtype: 'TODO' })); })() }"
             },
             "sync": {
                 "symbols": {
