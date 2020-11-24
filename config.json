@@ -10,7 +10,7 @@
             },
             "sync": {
                 "symbols": {
-                    "fetch": "(() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym/${s}?type=browse`).map((v) => arguments[0] + '/' + v)).reduce((a, b) => a.concat(b), []); })()",
+                    "fetch": "(() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym/${s}?type=browse`).map((v) => s + '/' + v)).reduce((a, b) => a.concat(b), []); })()",
                     "transform": "arguments[0].map((v) => ({ id: v, vtype: 'TODO' }))"
                 }
             },
