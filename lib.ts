@@ -3,7 +3,7 @@
  */
 //% icon="\ue268" block="plcipc"
 namespace plcipc {
-    const EVENT_PREFIX = 'plcipc';
+    export const EVENT_PREFIX = 'plcipc';
 
     export class PlcIpcService {
         private apps: PLCApplication[] = [];
@@ -33,7 +33,7 @@ namespace plcipc {
         }
     }
 
-    const plcIpcService = new PlcIpcService();
+    export const plcIpcService = new PlcIpcService();
 
     export class PLCSymbol {
         public id: string;
