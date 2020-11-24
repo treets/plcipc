@@ -34,7 +34,7 @@ namespace dummy {
 //% icon="\ue268" block="plcipc"
 namespace plcipc {
     export const EVENT_PREFIX = 'plcipc';
-    export const plcIpcService = new dummy.PlcIpcService();
+    export const service = new dummy.PlcIpcService();
 
     export class PLCSymbol {
         public id: string;
@@ -50,7 +50,7 @@ namespace plcipc {
         constructor(address: string, symbols: PLCSymbol[]) {
             this.address = address;
             this.symbols = symbols;
-            plcIpcService.initialize(this);
+            service.initialize(this);
         }
 
         /**
