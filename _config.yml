@@ -1,0 +1,8 @@
+makecode:
+  target: tiger
+  platform: tiger
+  home_url: ...
+theme: jekyll-theme-slate
+include:
+  - assets
+  - README.md

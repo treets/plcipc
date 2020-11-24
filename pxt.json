@@ -1,0 +1,28 @@
+{
+    "name": "plcipc",
+    "version": "0.0.0",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "motion": "*"
+    },
+    "files": [
+        "README.md",
+        "main.blocks",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "tiger"
+    ],
+    "preferredEditor": "blocksprj",
+    "yotta": {
+        "config": {
+            "attach": true,
+            "trace": true
+        }
+    }
+}
