@@ -1,28 +1,15 @@
 {
     "name": "plcipc",
     "version": "0.0.0",
-    "description": "",
+    "description": "Inter process communication with PLC runtime on ctrlX core.",
     "dependencies": {
         "core": "*",
-        "motion": "*"
+        "ctrlx": "*"
     },
     "files": [
-        "README.md",
-        "main.blocks",
-        "main.ts"
-    ],
-    "testFiles": [
-        "test.ts"
+        "lib.ts",
+        "config.json"
     ],
     "public": true,
-    "supportedTargets": [
-        "tiger"
-    ],
-    "preferredEditor": "blocksprj",
-    "yotta": {
-        "config": {
-            "attach": true,
-            "trace": true
-        }
-    }
+    "preferredEditor": "tsprj"
 }
