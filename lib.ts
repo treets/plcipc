@@ -1,12 +1,6 @@
- /**
- * Inter process communication with PLC applications on ctrlX.
- */
-//% icon="\ue268" block="plcipc"
-namespace plcipc {
-    export const EVENT_PREFIX = 'plcipc';
-
+namespace dummy {
     export class PlcIpcService {
-        private apps: PLCApplication[] = [];
+        private apps: plcipc.PLCApplication[] = [];
 
         constructor() {
             control.runInBackground(() => {
@@ -25,15 +19,22 @@ namespace plcipc {
             });
         }
 
-        initialize(app: PLCApplication): void {
+        initialize(app: plcipc.PLCApplication): void {
             for (let j = 0; j < app.symbols.length; j++) {
                 app.symbols[j].current = app.read(app.symbols[j].id);
             }
             this.apps.push(app);
         }
     }
+}
 
-    export const plcIpcService = new plcipc.PlcIpcService();
+/**
+ * Inter process communication with PLC applications on ctrlX.
+ */
+//% icon="\ue268" block="plcipc"
+namespace plcipc {
+    export const EVENT_PREFIX = 'plcipc';
+    export const plcIpcService = new dummy.PlcIpcService();
 
     export class PLCSymbol {
         public id: string;
