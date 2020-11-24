@@ -16,7 +16,7 @@ namespace plcipc {
                             const current = this.apps[i].read(this.apps[i].symbols[j].id);
                             if (current !== this.apps[i].symbols[j].current) {
                                 this.apps[i].symbols[j].current = current;
-                                events.emit(EVENT_PREFIX + this.apps[i].address + this.apps[i].symbols[j].id, 0, current);
+                                events.emit(plcipc.EVENT_PREFIX + this.apps[i].address + this.apps[i].symbols[j].id, 0, current);
                             }
                         }
                     }
@@ -49,7 +49,7 @@ namespace plcipc {
         constructor(address: string, symbols: PLCSymbol[]) {
             this.address = address;
             this.symbols = symbols;
-            plcIpcService.initialize(this);
+            plcipc.plcIpcService.initialize(this);
         }
 
         /**
@@ -87,7 +87,7 @@ namespace plcipc {
         //% shim=.onEvent
         public onEvent(symbol: string, handler: (value: any) => void /*body: Action*/): void {
             const anyHandler: any = handler;
-            events.listen(EVENT_PREFIX + this.address + symbol, 0, anyHandler);
+            events.listen(plcipc.EVENT_PREFIX + this.address + symbol, 0, anyHandler);
         }
     }
 }
