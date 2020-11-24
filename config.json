@@ -10,7 +10,7 @@
             },
             "sync": {
                 "symbols": {
-                    "fetch": "(() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym/${s}?type=browse`).map((v) => arguments[0] + '/' + v); })()",
+                    "fetch": "(() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym/${s}?type=browse`).map((v) => arguments[0] + '/' + v)); })()",
                     "transform": "{ id: arguments[0], vtype: 'TODO' }"
                 }
             },
