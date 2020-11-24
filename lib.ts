@@ -50,7 +50,7 @@ namespace plcipc {
         constructor(address: string, symbols: PLCSymbol[]) {
             this.address = address;
             this.symbols = symbols;
-            plcipc.plcIpcService.initialize(this);
+            plcIpcService.initialize(this);
         }
 
         /**
