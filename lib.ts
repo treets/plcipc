@@ -38,7 +38,7 @@ namespace plcipc {
     export class PLCSymbol {
         public id: string;
         public vtype: string;
-        public current?: any;
+        public current?: any = undefined;
     }
 
     //% fixedInstances
