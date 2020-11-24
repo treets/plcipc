@@ -37,8 +37,8 @@ namespace plcipc {
 
     export class PLCSymbol {
         public id: string;
-        public vtype: string;
-        public current?: any = undefined;
+        public vtype: string = 'TODO';
+        public current?: any;
     }
 
     //% fixedInstances
@@ -86,7 +86,8 @@ namespace plcipc {
         //% draggableParameters="reporter"
         //% shim=.onEvent
         public onEvent(symbol: string, handler: (value: any) => void /*body: Action*/): void {
-            events.listen(EVENT_PREFIX + this.address + symbol, 0, handler as any);
+            const anyHandler: any = handler;
+            events.listen(EVENT_PREFIX + this.address + symbol, 0, anyHandler);
         }
     }
 }
