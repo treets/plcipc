@@ -11,7 +11,6 @@ namespace dummy {
                             if (current !== this.apps[i].symbols[j].current) {
                                 this.apps[i].symbols[j].current = current;
                                 events.emit(plcipc.EVENT_PREFIX + this.apps[i].address + this.apps[i].symbols[j].id, 0, current);
-                                console.log('AAAAAAAAAAAA');
                             }
                         }
                     }
