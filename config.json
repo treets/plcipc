@@ -1,0 +1,47 @@
+{
+    "fields": [
+        {
+            "name": "apps",
+            "type": "array",
+            "instance": "new plcipc.PLCApplication(${address}, ${symbols})",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "address",
+                    "type": "string"
+                },
+                {
+                    "name": "symbols",
+                    "type": "array",
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "string"
+                        },
+                        {
+                            "name": "vtype",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "default": {
+        "apps": [
+            {
+                "id": "plc1",
+                "address": "plc1",
+                "symbols": [
+                    {
+                        "id": "testinger",
+                        "vtype": "UINT"
+                    }
+                ]
+            }
+        ]
+    }
+}
