@@ -4,6 +4,16 @@
             "name": "apps",
             "type": "array",
             "instance": "new plcipc.PLCApplication(${address}, ${symbols})",
+            "lookup": {
+                "fetch": "rest.get('/automation/api/v1.0/plc/app?type=browse')",
+                "transform": "{ id: arguments[0], address: arguments[0], symbols: (() => { const ret = rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`); return ret.map((s) => ({ id: ret, vtype: 'TODO' })) })() }"
+            },
+            "sync": {
+                "symbols": {
+                    "fetch": "rest.get(`/automation/api/v1.0/plc/app/${arguments[0]}/sym?type=browse`)",
+                    "transform": "{ id: arguments[0], vtype: 'TODO' }"
+                }
+            },
             "fields": [
                 {
                     "name": "id",
