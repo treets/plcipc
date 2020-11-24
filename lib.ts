@@ -33,7 +33,7 @@ namespace plcipc {
         }
     }
 
-    export const plcIpcService = new PlcIpcService();
+    export const plcIpcService = new plcipc.PlcIpcService();
 
     export class PLCSymbol {
         public id: string;
